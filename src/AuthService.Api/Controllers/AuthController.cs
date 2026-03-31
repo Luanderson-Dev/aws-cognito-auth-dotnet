@@ -18,4 +18,11 @@ public class AuthController : ControllerBase
         var result = await _mediator.Send(command);
         return Ok(result);
     }
+    
+    [HttpPost("confirm-signup")]
+    public async Task<IActionResult> Confirm([FromBody] ConfirmSignUpCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return Ok(result);
+    }
 }
