@@ -49,4 +49,11 @@ public class AuthController : ControllerBase
         var result = await _mediator.Send(command);
         return Ok(result);
     }
+    
+    [HttpPost("confirm-forgot-password")]
+    public async Task<IActionResult> ConfirmForgotPassword([FromBody] ConfirmForgotPasswordCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return Ok(result);
+    }
 }
