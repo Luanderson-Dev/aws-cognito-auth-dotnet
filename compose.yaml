@@ -4,4 +4,9 @@
     build:
       context: .
       dockerfile: src/AuthService.Api/Dockerfile
-
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Production
