@@ -1,5 +1,6 @@
 using Amazon;
 using Amazon.CognitoIdentityProvider;
+using AuthService.Application;
 using AuthService.Domain.Interfaces;
 using AuthService.Infrastructure.Repositories;
 using AuthService.Infrastructure.Settings;
@@ -22,6 +23,15 @@ public static class DependencyInjection
             new AmazonCognitoIdentityProviderClient(RegionEndpoint.GetBySystemName(region)));
 
         services.AddScoped<IAuthRepository, CognitoAuthRepository>();
+
+        return services;
+    }
+    
+    public static IServiceCollection AddApplication(this IServiceCollection services)
+    {
+        services.AddMediatR(cfg =>
+            cfg.RegisterServicesFromAssembly(typeof(ApplicationAssemblyMarker).Assembly)
+        );
 
         return services;
     }
