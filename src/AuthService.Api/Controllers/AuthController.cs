@@ -1,4 +1,5 @@
 using AuthService.Application.UseCases.SignIn;
+using AuthService.Application.UseCases.SignOut;
 using AuthService.Application.UseCases.SignUp;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -32,5 +33,12 @@ public class AuthController : ControllerBase
     {
         var tokens = await _mediator.Send(command);
         return Ok(tokens);
+    }
+    
+    [HttpPost("signout")]
+    public async Task<IActionResult> SignOut([FromBody] SignOutCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return Ok(result);
     }
 }
