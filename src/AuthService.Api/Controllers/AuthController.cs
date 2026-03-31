@@ -1,3 +1,4 @@
+using AuthService.Application.UseCases.ForgotPassword;
 using AuthService.Application.UseCases.SignIn;
 using AuthService.Application.UseCases.SignOut;
 using AuthService.Application.UseCases.SignUp;
@@ -37,6 +38,13 @@ public class AuthController : ControllerBase
     
     [HttpPost("signout")]
     public async Task<IActionResult> SignOut([FromBody] SignOutCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return Ok(result);
+    }
+    
+    [HttpPost("forgot-password")]
+    public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordCommand command)
     {
         var result = await _mediator.Send(command);
         return Ok(result);
