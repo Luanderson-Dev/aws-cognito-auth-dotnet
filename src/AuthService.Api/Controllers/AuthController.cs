@@ -1,3 +1,4 @@
+using AuthService.Application.UseCases.SignIn;
 using AuthService.Application.UseCases.SignUp;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -24,5 +25,12 @@ public class AuthController : ControllerBase
     {
         var result = await _mediator.Send(command);
         return Ok(result);
+    }
+    
+    [HttpPost("signin")]
+    public async Task<IActionResult> SignIn([FromBody] SignInCommand command)
+    {
+        var tokens = await _mediator.Send(command);
+        return Ok(tokens);
     }
 }
