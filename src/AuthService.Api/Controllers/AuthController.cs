@@ -1,4 +1,5 @@
 using AuthService.Application.UseCases.ForgotPassword;
+using AuthService.Application.UseCases.RefreshToken;
 using AuthService.Application.UseCases.SignIn;
 using AuthService.Application.UseCases.SignOut;
 using AuthService.Application.UseCases.SignUp;
@@ -55,5 +56,12 @@ public class AuthController : ControllerBase
     {
         var result = await _mediator.Send(command);
         return Ok(result);
+    }
+    
+    [HttpPost("refresh-token")]
+    public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenCommand command)
+    {
+        var tokens = await _mediator.Send(command);
+        return Ok(tokens);
     }
 }
