@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="compose.yaml" />
+  </Folder>
+  
   <Project Path="src/AuthService.Application/AuthService.Application.csproj" />
   <Project Path="src/AuthService.Api/AuthService.Api.csproj" />
   <Project Path="src/AuthService.Domain/AuthService.Domain.csproj" />
