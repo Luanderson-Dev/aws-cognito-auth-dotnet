@@ -7,13 +7,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
-    options.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Auth API",
-        Version = "v1",
-        Description =
-            "Authentication API powered by AWS Cognito — handles sign-up, sign-in, token refresh and password recovery."
-    }));
+        options.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Title = "Auth API",
+            Version = "v1",
+            Description =
+                "Authentication API powered by AWS Cognito — handles sign-up, sign-in, token refresh and password recovery."
+        });
+
+        options.EnableAnnotations();
+    }
+);
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
