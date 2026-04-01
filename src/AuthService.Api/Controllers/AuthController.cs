@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AuthService.Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/auth")]
 public class AuthController : ControllerBase
 {
     private readonly IMediator _mediator;
