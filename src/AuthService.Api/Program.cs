@@ -1,3 +1,4 @@
+using AuthService.Api.Middleware;
 using AuthService.Infrastructure;
 using Microsoft.OpenApi;
 
@@ -24,6 +25,8 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseSwagger();
 app.UseSwaggerUI();
