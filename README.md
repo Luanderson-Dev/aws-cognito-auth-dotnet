@@ -144,7 +144,7 @@ To integrate the application with AWS Cognito, you will need the following value
 ### **1\. Clone the repository**
 
 ```
-git clone \<YOUR\_REPOSITORY\_URL\>
+git clone git@github.com:Luanderson-Dev/aws-cognito-auth-dotnet.git
 cd aws-cognito-auth-dotnet
 ```
 
@@ -153,11 +153,11 @@ cd aws-cognito-auth-dotnet
 Create a .env file in the root of the project, using .env.example as a template, and insert the data obtained from the Cognito setup step:
 
 ```
-\# Cognito
-Cognito\_\_UserPoolId=us-east-1\_XXXXXXXXX
-Cognito\_\_ClientId=your-client-id
-Cognito\_\_ClientSecret=your-client-secret
-Cognito\_\_Region=us-east-1
+# Cognito
+Cognito__UserPoolId=us-east-1_XXXXXXXXX
+Cognito__ClientId=your-client-id
+Cognito__ClientSecret=your-client-secret
+Cognito__Region=us-east-1
 ```
 
 ### **3\. Running the Application**
